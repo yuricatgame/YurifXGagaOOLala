@@ -1,4 +1,4 @@
-# YurifXGagaOOLala
+# YurifXGagaOOLala 序號兌換活動
 
 <html lang="zh-Hant">
 <head>
