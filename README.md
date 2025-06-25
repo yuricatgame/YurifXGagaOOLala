@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>正在前往活動頁面...</title>
   <style>
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -14,7 +13,6 @@
     h1 {
       color: #333;
       font-size: 1.8rem;
-      margin-bottom: 1rem;
     }
     p {
       color: #666;
@@ -42,7 +40,7 @@
 <body>
   <h1>🎉 活動頁面正在開啟中...</h1>
   <p>若未自動跳轉，請點下方按鈕</p>
-  <a href="https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec" target="_blank" rel="noopener noreferrer">
+  <a href="https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec" target="_blank">
     👉 立即前往活動頁面
   </a>
 
@@ -56,22 +54,13 @@
 
   <script>
     const rawUrl = "https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec";
-    const currentUrl = window.location.href;
-
-    // 若 URL 含 /u/1 自動清理為乾淨格式
-    if (/\/u\/\d+\//.test(currentUrl)) {
-      const cleaned = currentUrl.replace(/\/u\/\d+\//, "/");
-      window.location.replace(cleaned);
+    if (/\/u\/\d+\//.test(window.location.href)) {
+      location.replace(window.location.href.replace(/\/u\/\d+\//, '/'));
     }
 
-    // 簡化判斷：只看 response.ok（狀態碼 200–299 即代表成功）
-    fetch(rawUrl, { method: 'GET', mode: 'no-cors' }) // no-cors 防止錯誤被攔下
-      .then(() => {
-        // 不管內容為何，只要成功發出請求就跳轉
-        window.location.href = rawUrl;
-      })
+    fetch(rawUrl, { method: 'GET', mode: 'no-cors' })
+      .then(() => { location.href = rawUrl; })
       .catch(() => {
-        // 請求被擋或錯誤才顯示備案
         document.getElementById("fallback").style.display = "block";
       });
   </script>
