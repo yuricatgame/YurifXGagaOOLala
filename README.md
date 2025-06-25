@@ -34,7 +34,7 @@
 <body>
   <h1>🎉 活動頁面正在開啟中...</h1>
   <p>若未自動跳轉，請點下方按鈕</p>
-  <a href="https://script.google.com/macros/s/AKfycbxSzmXyM4OOlUHI5MGrmvKFaaJe0pXiSey2zmkeJABhHBn9lA97_3s_gCFitISiIHS_/exec" target="_blank" rel="noopener noreferrer">
+  <a href="https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec" target="_blank" rel="noopener noreferrer">
     👉 立即前往活動頁面
   </a>
 </body>
