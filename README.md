@@ -1,4 +1,4 @@
-//<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -19,20 +19,19 @@
     p {
       color: #666;
       font-size: 1rem;
-      margin-top: 0;
     }
     a {
       display: inline-block;
       margin-top: 1.5rem;
       padding: 0.8rem 1.5rem;
-      background: #0078D4;
+      background: #3b82f6;
       color: white;
       text-decoration: none;
       border-radius: 8px;
       font-size: 1.1rem;
     }
     a:hover {
-      background: #005fa3;
+      background: #2563eb;
     }
     #fallback {
       display: none;
@@ -50,7 +49,7 @@
   <div id="fallback">
     <h2>⚠️ 無法載入活動頁面</h2>
     <p>請改用無痕模式、手機熱點，或填寫下方表單由工作人員協助處理：</p>
-    <a href="https://docs.google.com/forms/d/你的表單ID/viewform" target="_blank" rel="noopener noreferrer">
+    <a href="https://docs.google.com/forms/d/你的表單ID/viewform" target="_blank">
       📝 填寫備用表單
     </a>
   </div>
@@ -59,29 +58,22 @@
     const rawUrl = "https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec";
     const currentUrl = window.location.href;
 
-    // 若網址中有 /u/1 或 /u/2，清除後重新導向
+    // 若 URL 含 /u/1 自動清理為乾淨格式
     if (/\/u\/\d+\//.test(currentUrl)) {
-      const cleanedUrl = currentUrl.replace(/\/u\/\d+\//, '/');
-      window.location.replace(cleanedUrl);
+      const cleaned = currentUrl.replace(/\/u\/\d+\//, "/");
+      window.location.replace(cleaned);
     }
 
-    // 確認 GAS 頁面可讀取才跳轉
-    fetch(rawUrl)
-      .then(res => res.text())
-      .then(text => {
-        if (text.includes("<html") || text.includes("DOCTYPE")) {
-          window.location.href = rawUrl;
-        } else {
-          showFallback();
-        }
+    // 簡化判斷：只看 response.ok（狀態碼 200–299 即代表成功）
+    fetch(rawUrl, { method: 'GET', mode: 'no-cors' }) // no-cors 防止錯誤被攔下
+      .then(() => {
+        // 不管內容為何，只要成功發出請求就跳轉
+        window.location.href = rawUrl;
       })
       .catch(() => {
-        showFallback();
+        // 請求被擋或錯誤才顯示備案
+        document.getElementById("fallback").style.display = "block";
       });
-
-    function showFallback() {
-      document.getElementById("fallback").style.display = "block";
-    }
   </script>
 </body>
 </html>
