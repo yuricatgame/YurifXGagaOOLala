@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>正在前往活動頁面...</title>
-  <meta http-equiv="refresh" content="2;url=https://script.google.com/macros/s/AKfycbxSzmXyM4OOlUHI5MGrmvKFaaJe0pXiSey2zmkeJABhHBn9lA97_3s_gCFitISiIHS_/exec" />
+  <meta http-equiv="refresh" content="2;url=https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec" />
   <style>
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
