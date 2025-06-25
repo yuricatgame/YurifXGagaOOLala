@@ -37,17 +37,21 @@
   <a id="manual-link" href="#" target="_blank" rel="noopener noreferrer">👉 立即前往活動頁面</a>
 
   <script>
-    const cleanUrl = "https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec";
+    // 實際目標網址（乾淨版 GAS URL）
+    const targetUrl = "https://script.google.com/macros/s/AKfycbz83W8Ez0laszoAfNuO_vhYlWAHWMhVzj1cOWbjD0pWwHWVwvhsX_30jnCH7ODO99Gs/exec";
 
-    // 防止 Google 自動加 /u/1 或 /u/2，強制使用乾淨版網址
-    const cleanedUrl = cleanUrl.replace(/\/u\/\d+\//, "/");
+    // 若使用者的瀏覽器目前在 Google 自動加入 /u/1/... 的情況下開啟此頁，這段可以確保回到乾淨網址
+    const currentUrl = window.location.href;
+    if (/\/u\/\d+\//.test(currentUrl)) {
+      console.warn("⚠️ 偵測到 /u/1 自動導向，強制清除中...");
+    }
 
-    // 替手動按鈕設好正確的 URL
-    document.getElementById("manual-link").href = cleanedUrl;
+    // 設定手動按鈕
+    document.getElementById("manual-link").href = targetUrl;
 
-    // 自動轉跳（2 秒後）
+    // 自動跳轉（2 秒）
     setTimeout(() => {
-      window.location.replace(cleanedUrl);
+      window.location.replace(targetUrl);
     }, 2000);
   </script>
 </body>
