@@ -38,7 +38,7 @@
 
   <script>
     // 實際目標網址（乾淨版 GAS URL）
-    const targetUrl = "https://script.google.com/macros/s/AKfycbxcKjzkdBa0tWzYEuzZFQgu0OkiuX0ZlGBrNrfXU-OieIsheILf10ne13vIwEh3s0zG/exec";
+    const targetUrl = "https://script.google.com/macros/s/AKfycbwS9O1NfJ5pX9scLKfjwGuMwTwImNhiDHyS3LDiZj_seQrrkVv5KTZwErfwEfIejQoN/exec";
 
     // 若使用者的瀏覽器目前在 Google 自動加入 /u/1/... 的情況下開啟此頁，這段可以確保回到乾淨網址
     const currentUrl = window.location.href;
